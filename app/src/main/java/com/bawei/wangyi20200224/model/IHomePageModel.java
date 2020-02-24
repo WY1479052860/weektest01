@@ -14,7 +14,7 @@ public class IHomePageModel implements IHomePageContract.IModel {
         NetUtils.getNetUtils().getJson(url, new NetUtils.ICallBack() {
             @Override
             public void Success(String json) {
-                iCallBackModel.getBannerFaliure(json);
+                iCallBackModel.getBannerSuccess(json);
                 Log.i("xxx",json);
             }
 

@@ -2,7 +2,6 @@ package com.bawei.wangyi20200224.presenter;
 
 import com.bawei.wangyi20200224.contract.IHomePageContract;
 import com.bawei.wangyi20200224.model.IHomePageModel;
-import com.bawei.wangyi20200224.utils.NetUtils;
 
 /**
  * p层
