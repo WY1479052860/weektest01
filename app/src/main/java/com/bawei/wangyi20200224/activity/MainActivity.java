@@ -1,8 +1,10 @@
-package com.bawei.wangyi20200224;
+package com.bawei.wangyi20200224.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.bawei.wangyi20200224.R;
 
 public class MainActivity extends AppCompatActivity {
 
