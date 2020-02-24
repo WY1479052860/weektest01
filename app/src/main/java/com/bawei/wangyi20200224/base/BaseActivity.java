@@ -6,11 +6,24 @@ import android.os.Bundle;
 
 import com.bawei.wangyi20200224.R;
 
-public class BaseActivity extends AppCompatActivity {
+/**
+ * 基类抽取
+ */
+public abstract  class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        setContentView(getLayout());
+        //加载控件
+        initView();
+        //加载数据
+        initData();
     }
+    //布局资源ID
+    protected abstract int getLayout();
+    //加载控件
+    protected abstract void initView();
+    //加载数据
+    protected abstract void initData();
 }
