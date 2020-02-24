@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.bawei.wangyi20200224.R;
+import com.bawei.wangyi20200224.adapter.MyAdapter;
 import com.bawei.wangyi20200224.base.BaseActivity;
 import com.bawei.wangyi20200224.bean.BeanInfo;
 import com.bawei.wangyi20200224.contract.IHomePageContract;
@@ -67,6 +68,11 @@ public class MainActivity extends BaseActivity implements IHomePageContract.IVie
     @Override
     public void getListSuccess(String str) {
         Gson gson = new Gson();
+        BeanInfo beanInfo = gson.fromJson(str, BeanInfo.class);
+        List<BeanInfo.ResultsBean> results = beanInfo.getResults();
+        List<BeanInfo.ResultsBean.NewsistBean> newsist = results.get(0).getNewsist();
+
+        new MyAdapter(MainActivity.this,newsist);
 
 
 
