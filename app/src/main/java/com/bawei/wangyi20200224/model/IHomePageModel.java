@@ -1,10 +1,45 @@
 package com.bawei.wangyi20200224.model;
 
+import android.util.Log;
+
+import com.bawei.wangyi20200224.contract.IHomePageContract;
+import com.bawei.wangyi20200224.utils.NetUtils;
+
 /**
- * <p>文件描述：<p>
- * <p>作者：DELL<p>
- * <p>创建时间：2020/1/9<p>
- * <p>版本号：1<p>
+ * m层
  */
-public class IHomePageModel {
+public class IHomePageModel implements IHomePageContract.IModel {
+    @Override
+    public void getBanner(String url, final ICallBackModel iCallBackModel) {
+        NetUtils.getNetUtils().getJson(url, new NetUtils.ICallBack() {
+            @Override
+            public void Success(String json) {
+                iCallBackModel.getBannerFaliure(json);
+                Log.i("xxx",json);
+            }
+
+            @Override
+            public void Error(String msg) {
+                iCallBackModel.getBannerFaliure(msg);
+            }
+        });
+    }
+
+    @Override
+    public void getList(String url, final CallBack callBack) {
+        NetUtils.getNetUtils().getJson(url, new NetUtils.ICallBack() {
+            @Override
+            public void Success(String json) {
+                Log.i("xxx",json);
+                callBack.getListSuccess(json);
+            }
+
+            @Override
+            public void Error(String msg) {
+                callBack.getListFaliure(msg);
+
+            }
+        });
+
+    }
 }
